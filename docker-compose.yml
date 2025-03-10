@@ -1,0 +1,18 @@
+services:
+  postgres-db:
+    image: postgres:15
+    container_name: 'postgres-auth-webflux'
+    restart: always
+    environment:
+      POSTGRES_DB: 'auth-db'
+      POSTGRES_USER: 'auth-user'
+      POSTGRES_PASSWORD: 'user123$'
+    ports:
+      - '5432:5432'
+    expose:
+      - '5432'
+    volumes:
+      - auth-data-pg-flux:/var/lib/postgresql/data
+
+volumes:
+  auth-data-pg-flux:
